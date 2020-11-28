@@ -10,18 +10,18 @@ Prerequisites: make sure you have homebrew installed and it might be necessary t
 Then, get the git-repo and open one of the subprojects in cmake and build it:
 1. git clone https://github.com/kingpfogel/ex2-exp-algo.git
 2. Open one of the following subprojects in CLion and build the cmake project:
-    -[x] ex2-hash-dynamic
-    -[x] ex2-wordcount
+    1. ex2-hash-dynamic
+    2. ex2-wordcount
 
 ### How to work on the gruenau remote machines:
 1. git clone https://github.com/kingpfogel/ex2-exp-algo.git
 2. choose one of the following:
-    -[x] cd ex2-hash-dynamic
-    -[x] cd ex2-wordcount
+    1. cd ex2-hash-dynamic
+    2. cd ex2-wordcount
 3. mkdir build-dir && cd build-dir
 4. choose one of the following matching the selection above:
-    -[x] meson --buildtype=debugoptimized ../develop/hashing && ninja
-    -[x] meson --buildtype=debugoptimized ../develop/word-count && ninja
+    1. meson --buildtype=debugoptimized ../develop/hashing && ninja
+    2. meson --buildtype=debugoptimized ../develop/word-count && ninja
     
 ### Overview:
 - tool: simexpal version 0.4
