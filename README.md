@@ -1,5 +1,5 @@
 # ex2-exp-algo
-Solutions to the first exercise sheet of experimental algorithms. (Group: L. Thyssen and N. Neesemann)
+Solutions to the second exercise sheet of experimental algorithms. (Group: L. Thyssen and N. Neesemann)
 
 Hope this helps. Did not know how to get openmp to work on OS X. With cmake it works..
 ### How to work on OS X with CLion and CMake:
