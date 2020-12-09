@@ -98,7 +98,7 @@ size_t count_substrings(const std::vector<uint8_t> &input) {
 
 int main() {
     std::vector<uint8_t> input;
-    input.resize(1 << 1);
+    input.resize(1 << 24);
 
     std::mt19937 prng{42};
 
