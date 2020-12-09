@@ -33,9 +33,6 @@ struct concurrent_chaining_table {
             : heads{new chain *[M]{}}, mutexes{new std::mutex[M]} { }
 
     // Note: to simply the implementation, destructors and copy/move constructors are missing.
-    ~concurrent_chaining_table() {
-        delete[] heads; delete[] mutexes;
-    }
 
     void put(unsigned int k) {
         auto idx = hash_to_index(k);
@@ -45,8 +42,7 @@ struct concurrent_chaining_table {
         auto p = heads[idx];
         if(!p) {
             heads[idx] = new chain{nullptr, k};
-            counter.fetch_add(1);
-
+            ++counter;
             return;
         }
 
@@ -58,7 +54,7 @@ struct concurrent_chaining_table {
 
             if(!p->next) {
                 p->next = new chain{nullptr, k};
-                counter.fetch_add(1);
+                ++counter;
                 return;
             }
 
@@ -71,35 +67,22 @@ struct concurrent_chaining_table {
 };
 
 size_t count_substrings(const std::vector<uint8_t> &input) {
-    int c1 = 0;
-    int c2 = 1;
-    int c3 = 2;
-    int c4 = 3;
-
-    std::atomic<int> sum = 0;
-    for(int i = 0; i < input.size(); ++i){
-        std::string str  = std::bitset<8>(input[i]).to_string();
-        auto hash_table = new concurrent_chaining_table();
-        #pragma omp parallel for
-        for(int niklas = 0; niklas < 5; ++niklas){
-            unsigned int key =   (static_cast<unsigned int>(str[c1+niklas]) << 24)
-                                 | (static_cast<unsigned int>(str[c2+niklas]) << 16)
-                                 | (static_cast<unsigned int>(str[c3+niklas]) << 8)
-                                 |  static_cast<unsigned int>(str[c4+niklas]);
-
-            hash_table->put(key);
-        }
-        sum.fetch_add(hash_table->counter);
-        delete hash_table;
+    auto hash_table = concurrent_chaining_table();
+    #pragma omp parallel for
+    for(int i = 0; i < input.size()-3; ++i){
+        unsigned int key =   (static_cast<unsigned int>(input[i]) << 24)
+                             | (static_cast<unsigned int>(input[i+1]) << 16)
+                             | (static_cast<unsigned int>(input[i+2]) << 8)
+                             |  static_cast<unsigned int>(input[i+3]);
+        hash_table.put(key);
     }
 
-    return sum;
+    return hash_table.counter;
 }
 
 int main() {
     std::vector<uint8_t> input;
     input.resize(1 << 24);
-
     std::mt19937 prng{42};
 
     std::cerr << "Generating random data..." << std::endl;
@@ -107,7 +90,7 @@ int main() {
     std::uniform_int_distribution<int> distrib{0, 255};
     for(size_t i = 0; i < input.size(); ++i)
         input[i] = distrib(prng);
-
+    //omp_set_num_threads(1);
     std::cerr << "Running benchmark..." << std::endl;
 
     auto bench_start = std::chrono::high_resolution_clock::now();
