@@ -27,9 +27,15 @@ variants:
   - axis: algo
     items:
       - name: static
-        extra_args: ['--algo', 'stl']
-      - name: stl
         extra_args: ['--algo', 'static']
+      - name: stl
+        extra_args: ['--algo', 'stl']
+      - name: dynamic
+        extra_args: [ '--algo', 'dynamic' ]
+      - name: static_scaling
+        extra_args: [ '--algo', 'static_scaling' ]
+      - name: dynamic_scaling
+        extra_args: [ '--algo', 'dynamic_scaling' ]
   - axis: c
     items:
       - name: c50
@@ -48,3 +54,4 @@ instances:
   - repo: local
     items:
       - dummy
+
