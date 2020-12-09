@@ -69,7 +69,7 @@ struct concurrent_chaining_table {
 size_t count_substrings(const std::vector<uint8_t> &input) {
     auto hash_table = concurrent_chaining_table();
     #pragma omp parallel for
-    for(int i = 0; i < input.size()-3; ++i){
+    for(size_t i = 0; i < input.size()-3; ++i){
         unsigned int key =   (static_cast<unsigned int>(input[i]) << 24)
                              | (static_cast<unsigned int>(input[i+1]) << 16)
                              | (static_cast<unsigned int>(input[i+2]) << 8)
