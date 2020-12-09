@@ -1,0 +1,93 @@
+algo: dynamic
+max_fill: 0.5
+time: 23230 # ms
+algo: dynamic
+max_fill: 0.8
+time: 23460 # ms
+algo: dynamic
+max_fill: 0.9
+time: 25853 # ms
+algo: dynamic
+max_fill: 0.95
+time: 28955 # ms
+algo: dynamic
+max_fill: 0.99
+time: 50913 # ms
+algo: dynamic
+max_fill: 0.5
+time: 22511 # ms
+algo: dynamic
+max_fill: 0.8
+time: 25180 # ms
+algo: dynamic
+max_fill: 0.9
+time: 25338 # ms
+algo: dynamic
+max_fill: 0.95
+time: 29059 # ms
+algo: dynamic
+max_fill: 0.99
+time: 50124 # ms
+
+
+algo: dynamic
+max_fill: 0.5
+time: 20782 # ms
+dynamic0.520782
+algo: dynamic
+max_fill: 0.8
+time: 22106 # ms
+dynamic0.822106
+algo: dynamic
+max_fill: 0.9
+time: 25450 # ms
+dynamic0.925450
+algo: dynamic
+max_fill: 0.95
+time: 28619 # ms
+dynamic0.9528619
+algo: dynamic
+max_fill: 0.99
+time: 46899 # ms
+dynamic0.9946899
+algo: static
+max_fill: 0.5
+time: 15153 # ms
+static0.515153
+algo: static
+max_fill: 0.8
+time: 15242 # ms
+static0.815242
+algo: static
+max_fill: 0.9
+time: 15247 # ms
+static0.915247
+algo: static
+max_fill: 0.95
+time: 15209 # ms
+static0.9515209
+algo: static
+max_fill: 0.99
+time: 15163 # ms
+static0.9915163
+algo: stl
+max_fill: 0.5
+time: 81316 # ms
+stl0.581316
+algo: stl
+max_fill: 0.8
+time: 81544 # ms
+stl0.881544
+algo: stl
+max_fill: 0.9
+time: 80903 # ms
+stl0.980903
+algo: stl
+max_fill: 0.95
+time: 81005 # ms
+stl0.9581005
+algo: stl
+max_fill: 0.99
+time: 81319 # ms
+stl0.9981319
+static_scaling 0.5 18893

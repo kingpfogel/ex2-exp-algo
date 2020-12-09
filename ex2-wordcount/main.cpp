@@ -72,7 +72,8 @@ size_t count_substrings(const std::vector<uint8_t> &input) {
 
 int main() {
     std::vector<uint8_t> input;
-    input.resize(1 << 26);
+//    input.resize(1 << 24);
+    input.resize(1 << 5);
 
     std::mt19937 prng{42};
 
@@ -82,7 +83,7 @@ int main() {
     for(size_t i = 0; i < input.size(); ++i)
         input[i] = distrib(prng);
 
-    std::cerr << "Running benchmark..." << std::endl;
+    /*std::cerr << "Running benchmark..." << std::endl;
 
     auto bench_start = std::chrono::high_resolution_clock::now();
     auto result = count_substrings(input);
@@ -92,5 +93,6 @@ int main() {
     std::cout << "result: " << result << std::endl;
     std::cout << "time: "
               << std::chrono::duration_cast<std::chrono::milliseconds>(bench_elapsed).count()
-              << " # ms" << std::endl;
+              << " # ms" << std::endl;*/
+    std::cout << std::bitset<8>(input[0]).to_string() << std::endl;
 }
