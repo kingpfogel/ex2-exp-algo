@@ -1,0 +1,3 @@
+algo: static_scaling
+max_fill: 0.99
+time: 14027 # ms

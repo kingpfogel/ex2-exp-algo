@@ -1,0 +1,3 @@
+algo: dynamic_scaling
+max_fill: 0.99
+time: 33142 # ms
