@@ -1,0 +1,14 @@
+Algo;MaxFill;Cache Misses
+static;0.99;125393938
+stl;0.99;679437053
+static_scaling;0.99;116364282
+dynamic_scaling;0.5;258467595
+dynamic_scaling;0.8;362574195
+dynamic_scaling;0.9;454307367
+dynamic_scaling;0.95;604080606
+dynamic_scaling;0.99;1184677265
+dynamic;0.5;243637409
+dynamic;0.8;359493204
+dynamic;0.9;461662061
+dynamic;0.95;588491145
+Dynamic;0.99;1161555659
