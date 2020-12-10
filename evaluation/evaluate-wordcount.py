@@ -21,16 +21,16 @@ for d in ds:
 
     algos = [1, 2, 4, 8, 16, 32, 64]
     keys = ['time']
-
     for key in keys:
         plt.clf()
         for algo in algos:
             # plotting the lines
-            plt.plot(np.mean(getValues('num_threads', algo)), np.mean(getValues(key, algo)), "o", label=algo)
+
+            plt.plot(np.mean(getValues('num_threads', algo)), (np.mean(getValues(key, 1))/np.mean(getValues(key, algo))), "o", label=algo)
 
         # set labels
         plt.xlabel('Threads')
-        plt.ylabel(key)
+        plt.ylabel('Speedup compared to one Thread')
         # Set title
         plt.title('Threads vs. ' + key)
         # show a legend on the plot
