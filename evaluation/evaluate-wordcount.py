@@ -29,10 +29,10 @@ for d in ds:
             plt.plot(np.mean(getValues('num_threads', algo)), np.mean(getValues(key, algo)), "o", label=algo)
 
         # set labels
-        plt.xlabel('Fill Factor')
+        plt.xlabel('Threads')
         plt.ylabel(key)
         # Set title
-        plt.title('Fill Factor vs. ' + key)
+        plt.title('Threads vs. ' + key)
         # show a legend on the plot
         plt.legend()
         # Display a figure.

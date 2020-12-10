@@ -378,12 +378,12 @@ void microbenchmark(float max_fill) {
 		table.put(distrib(prng), nv++);
 	auto t = std::chrono::high_resolution_clock::now() - start;
 
-	/*std::cout << "algo: " << Algo::name << std::endl;
+	std::cout << "algo: " << Algo::name << std::endl;
 	std::cout << "max_fill: " << max_fill << std::endl;
 	std::cout << "time: "
 			<< std::chrono::duration_cast<std::chrono::milliseconds>(t).count()
 			<< " # ms" << std::endl;
-    */
+
     std::cout << Algo::name << " " <<  max_fill << " " << std::chrono::duration_cast<std::chrono::milliseconds>(t).count() << std::endl;
 }
 /**
